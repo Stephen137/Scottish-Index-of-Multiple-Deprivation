@@ -1908,32 +1908,62 @@ Let's take a look at each of the seven `Domains` that contribute to the overall 
 
 ![income_rank_2020](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/c05a87e0-e405-4249-91d5-e195e7c2cf20)
 
-
 The income domain rankings are broadly similar to the overall SIMD ranking, which is as to be expected given the dominant weighting allocated to this domain. 
+
+##### Most deprived
+![20_most_deprived_income](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/9b51eefb-7c63-4b34-842d-5a6ba6d8f24d)
+
+##### Least deprived
+![20_least_deprived_income](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/b78ec023-212c-4cb1-af91-1789d5be9903)
+
 
 #### Employment Domain Rank - 2020 (SMID weighting - 28%)
 
 ![employment_rank_2020](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/47eb62c5-d8f1-4feb-8198-47d8c8f4e119)
 
-
 The employment domain rankings are also broadly similar to the overall SIMD ranking, which is agian to be expected given the dominant weighting allocated to this domain. 
+
+##### Most deprived
+![20_most_deprived_employment](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/0519404e-0216-44f1-8805-84f7f10b7b9a)
+
+##### Least deprived
+![20_least_deprived_employment](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/fb1be6eb-5e1a-49d5-9f7e-d977368ddf43)
+
 
 #### Health Domain Rank - 2020 (SMID weighting - 14%)
 
 ![health_rank_2020](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/d67d33d5-85b3-40b3-8102-3518db933ad3)
+
+##### Most deprived
+![20_most_deprived_health](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/9413156b-103f-4254-837f-219a6a87c32b)
+
+##### Least deprived
+![20_least_deprived_health](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/5dab0f9a-f279-4e5d-abfb-c21e53e07400)
 
 
 #### Education Domain Rank - 2020 (SMID weighting - 14%)
 
 ![education_rank_2020](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/77329d74-8e31-4e01-81ae-57e2139c5cfb)
 
+##### Most deprived
+![20_most_deprived_education](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/1e68c9eb-5495-47eb-8dfe-76fee687a3be)
+
+##### Least deprived
+![20_least_deprived_education](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/ad2b98cd-79eb-4be0-9c24-364de9ba9483)
+
 
 #### Access Domain Rank - 2020 (SMID weighting - 9%)
 
 ![access_rank_2020](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/5118dc7c-0e3c-4167-9c6f-c00ce24403f9)
 
-
 This map provides a stark insight that is not captured by the overall index, due to the small weighting applied. The large swathes of blue clearly highlight the problems that Scotland's geography creates, and the challenge faced by government to ensure that rural communities are serviced.
+
+##### Most deprived
+![20_most_deprived_access](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/0a4f1ef3-9dec-4c7a-ab14-18ee2237ed46)
+
+##### Least deprived
+![20_least_deprived_income](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/3276dd5a-3ac2-4ec6-ab7d-0338c374de70)
+
 
 >Note when we zoom in to the major cities, as expected we can see that these have ready access to services.
 
@@ -1955,13 +1985,25 @@ These maps further highlight the challenge faced by government to ensure that ru
 
 ![crime_rank_2020](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/9e313a7e-c500-4bbd-9c8c-ea94d1b6fe1a)
 
+##### Most deprived
+![20_most_deprived_crime](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/179ac8db-65bf-4424-bc53-f92b3fcd2de0)
+
+##### Least deprived
+![20_least_deprived_crime](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/8245013c-ec7b-466f-9d34-3373972ccf07)
+
 
 #### Housing Domain Rank 2020 (Index weighting - 2%)
 
 ![housing_rank_2020](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/693a41e8-4916-4e2d-92f9-df25dd706653)
 
+##### Most deprived
+![20_most_deprived_housing](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/7191fee6-a120-4411-a0a0-2eeeac4f1775)
 
-So hopefully I have demonstrated the capabilities of QGIS which is a full-featured, user-friendly, free-and-open-source (FOSS) geographical information system (GIS) that runs on Unix platforms, Windows, and MacOS.
+##### Least deprived
+![20_least_deprived_housing](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/abee193c-08e1-4784-a63d-0602d92c308a)
+
+
+Hopefully I have demonstrated the capabilities of QGIS which is a full-featured, user-friendly, free-and-open-source (FOSS) geographical information system (GIS) that runs on Unix platforms, Windows, and MacOS.
 
 
 
@@ -5603,13 +5645,11 @@ A change of -15. That's good! Remember that a fall in percentile is a positive t
 
 ### Conclusion
 
-First and foremost, this project was an opportunity for me to test my data cleansing and analysis skills within a geospatial context, using real data to unveil insights which can be used to help shape future resource planning.  I was also able put my recent QGIS and ArcGIS learning to practical use. It was a challenging, but rewarding project. I now have a better understanding of the data used to calculate the SIMD and the socio-economic geography of my homeland, and was able to visualize the changes in the 2020 index from 2016.
+First and foremost, this project was an opportunity for me to test my data cleansing and analysis skills within a geospatial context, using real data. I was also able put my recent QGIS and ArcGIS learning to practical use. It was a challenging, but rewarding project. I now have a better understanding of the data used to calculate the SIMD and the socio-economic geography of my homeland, and was able to visualize the changes in the 2020 index from 2016. The insights could provide a platform to help shape future resource planning.
 
 I look forward to the publication of the 2024 index.
 
-Although the Scottish Index of Multiple Deprivation (SMID) is a useful indicator of deprivation levels throughout Scotland, like any index it can only ever be a subjective measure. The choice of domains, indicators and weightings applied, all influence the final outcome and changes to these components could potentially paint a very different picture. 
-
-In conclusion, like any statistical measure, in order to make an informed decision based on the SMID, it is critical to perform a thorough analysis of the supporting data. 
+In conclusion, although the Scottish Index of Multiple Deprivation (SMID) is a useful indicator of deprivation levels throughout Scotland, like any index it must be interpreetd with caution. The choice of domains, indicators and weightings applied, are subjective and changes to these components could potentially paint a very different picture. Like any statistical measure, in order to make an informed decision based on the SMID, it is critical to perform a thorough analysis of the supporting data. 
 
 ### Improvements to my analysis
 
