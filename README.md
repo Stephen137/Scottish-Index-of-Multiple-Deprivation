@@ -1,5 +1,8 @@
 ## Project goal
 
+![SIMD_percentile_change_2016_2020](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/f3d27f71-f8a3-4111-93ef-ba7101a1a27f)
+
+
 The aim of this project is to analyse and visualise the Scottish Index of Multiple Deprivation (SIMD) using a combination of pandas, geopandas, seaborn, matplotlib, QGIS and ArcGis Pro. The insights derived could be used by Scottish Government to help shape future resource allocation strategy.
 
 Although I recently relocated to Kraków, Poland, I was born and raised in Dundee, Scotland so this study area has an added layer of personal interest.
