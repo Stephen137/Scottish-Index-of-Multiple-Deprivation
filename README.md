@@ -49,11 +49,11 @@ The indicators for each domain were selected on the basis that they are:
 
 The domains are calculated differently depending on the type of data used in each one.
 
-When comparing an index over time it is critical to ensure that the underlying methodology remains consistent from year to year as any changes will distort our analysis. From revoew of the detailed technical guidance the 2020 and 2016 indices share the same methodology. For both these years the granularity is 6976 ***data zones***. 
+When comparing an index over time it is critical to ensure that the underlying methodology remains consistent from year to year as any changes will distort our analysis. From review of the detailed technical guidance the 2020 and 2016 indices share the same methodology. For both these years the granularity is 6976 ***data zones***. 
 
 ### Constructing the domains
 
-The income, employment and housing domains are created by summing counts of people and dividing by the appropriate population denominator (taken form the NRS Small Area Population Estimates (SAPE) or Census). The crime domain and some indicators in the health and education domain also use SAPE.
+The income, employment and housing domains are created by summing counts of people and dividing by the appropriate population denominator (taken from the NRS Small Area Population Estimates (SAPE) or Census). The crime domain and some indicators in the health and education domain also use SAPE.
 
 The `income domain` is constructed by adding all five income indicators and dividing by the 2017 mid-year total population from SAPE. Thus, the domain score is a
 simple percentage.
@@ -895,7 +895,7 @@ simd_2020.info()
 
 ### Most and least deprived datazones - 2020
 
-Let's find out which datazone is the most and least deprived using the powerful pandas `.loc` :
+Let's find out the most and least deprived datazones using the powerful pandas `.loc` :
 
 
 ```python
@@ -1288,7 +1288,8 @@ QGIS is a powerful and versatile GIS software that serves a wide range of users,
 
 Let's see how the map looks in QGIS which is better equipped for visualizing maps.
 
-![data_zones.JPG](attachment:6d10951a-cd46-455b-a3db-a303412c0338.JPG)
+![data_zones](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/be7554f2-0c01-4d8a-8773-ba2477cf8236)
+
 
 As you can see the shape file contains some basic metadata which can be accessed from by right clicking the datazones layer and selecting `Open Attribute Table`, however in order to visualize out SIMD data on the map we need to join our `simd_2020` table to our `datazones` table.
 
@@ -1741,7 +1742,7 @@ And here are the 20 least deprived data zones based on the SIMD 2020.
 
 ### Using Geopandas spatial operations to find which data zone a point lies in
 
-As we saw earlier we have a GeoDataFrame that contains the geometry of each data zone polygon. I would like to identify data zone that contains the street that I was raised in. We can use Geopandas to achieve this : 
+As we saw earlier we have a GeoDataFrame that contains the geometry of each data zone polygon. I would like to identify the data zone that contains the street that I was raised in. We can use Geopandas to achieve this : 
 
 
 ```python
@@ -1960,10 +1961,109 @@ These maps further highlight the challenge faced by government to ensure that ru
 ![housing_rank_2020](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/693a41e8-4916-4e2d-92f9-df25dd706653)
 
 
+So hopefully I have demonstrated the capabilities of QGIS which is a full-featured, user-friendly, free-and-open-source (FOSS) geographical information system (GIS) that runs on Unix platforms, Windows, and MacOS.
+
+
+
+## ArcGis
+
+Another powerful GIS application for Mapping and manipulating Data is ArcGis. It is developed and maintained by ESRI.
+
+As part of the Esri MOOC ***Spatial Data Science: The New Frontier in Analytics*** I have access to ArcGis Pro and discovered the Optimized Hot Spot and Outlier analysis tools. Let's now see those tools in action.
+
+### Detect patterns
+
+Statistical cluster analysis can help you minimize the subjectivity in your maps by identifying meaningful clusters in your data. The Hot Spot Analysis and Outlier Analysis tools use statistics to detect spatial patterns in your data, but each provides slightly different information about these patterns.
+
+ArcGIS provides traditional and optimized statistical cluster analysis tools. The optimized tools interrogate your data to provide smart default values, optimizing the analysis workflow. The traditional tools allow you more flexibility in defining the spatial relationships in your data, giving you more control over your analysis. 
+
+### Optimized Hot Spot Analysis
+
+The `Hot Spot Analysis` tool uses the **Getis-Ord Gi*** statistic to identify statistically significant spatial clusters of high values (hot spots) and low values (cold spots).
+
+The result of your analysis is a layer displaying hot spots in three shades of red and cold spots in three shades of blue. The varying shades correspond to three confidence intervals, indicating how confident you can be that these patterns are not the result of random chance.
+
+
+#### Income Deprived - 2020 - Hotspot Analysis
+
+![Income_Deprived_Hotspot](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/cc152285-fbc4-42ae-a38f-221fbb08245e)
+
+We can clearly see that large parts of the Glasgow area, significant pockets of Edinburgh and Dundee, and a pocket of Aberdeen are shown to be income deprived hotspots. 
+
+![income_deprived_hotspot_report](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/62c84a60-a30f-46b4-ab40-7266584bfc8e)
+
+
+#### Employment Deprived - 2020 - Hotspot Analysis
+
+![Employment_Deprived_Hotspot](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/8587aa96-d48d-41b8-b1a3-1b6a99ac95b3)
+
+
+Interestingly the Aberdeen pocket of Income Deprived is not replicated when it comes to Employment. The Glasgow, Edinburgh and Dundee pattern broadly resembles that for income deprivation.
+
+![employment_deprived_outlier_report](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/bc40b9af-feac-4e95-8163-60b776964986)
+
+
+#### Overcrowded - 2020 - Hotspot Analysis
+
+
+![Overcrowded_HotSpot](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/326e7325-a203-488c-9f82-14668c967531)
+
+
+As one might expect, the four main cities are overcrowding hotspots, emphasizing the continuing need for new affordable housing.
+
+![overcrowded_hotspot_report](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/c862eaa5-08f2-4983-b4c4-79d19fd80206)
+
+
+#### Drivetime to GP surgery - 2020 - Hotspot Analysis
+
+Ready and speedy access to healthcare is critical. The four major cities, Glasgow, Edinburgh, Aberdeen, and Dundee all have quick access to a GP, however large swathes of the country are vulnerable as illustrated by the following graphic, and highlights the challenge faced by government to ensure that rural communities are serviced.
+
+
+![Drivetime_to_GP_Hotspot](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/45f9c072-dda8-4b5b-a9fd-c2271633ad40)
+
+
+![drivetime_GP__hotspot_report](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/8a22079b-fa24-49f1-bc97-fc3f87ba24a5)
+
+
+Now that we have seen some examples of hotspot areas in Scotland with respect to certain indicators, let's now turn our attention to Outlier Analysis.
+
+### Outlier Analysis
+The `Outlier Analysis` tool uses the **Anselin Local Moran's I** statistic to identify statistically significant clusters of high and low values and to detect spatial outliers, or features with values that are significantly dissimilar from their neighbors.
+
+The bright red and blue features represent spatial outliers. Features with high values surrounded by areas with low values are called `High-Low` outliers and are displayed in `red`. Features with low values surrounded by areas with high values are called `Low-High` outliers and are displayed in `dark blue`. The pink and light blue colors indicate clusters of features with statistically significantly high values (pink) and statistically significantly low values (light blue). These clusters typically align with the hot spots and cold spots from the Optimized Hot Spot Analysis tool.
+
+#### Income Deprived - 2020 - Outlier Analysis
+
+![Income_Outlier](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/95e09241-20ba-401b-a3f9-2988330c8bed)
+
+![income_deprived_outlier_report](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/4fa6882c-d341-4ac6-82cd-b02649b6f702)
+
+#### Employment Deprived - 2020 - Outlier Analysis
+
+![employment_outlier](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/e8da4153-b6d6-4613-9fa4-8af2951671f1)
+
+![Uploading employment_deprivedoutlier_report.JPG…]()
+
+#### Overcrowded - 2020 - Outlier Analysis
+
+![employment_outlier](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/4395dd5c-13fb-4e30-843b-52d43d9a0895)
+
+
+![overcrowded_outlier_report](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/1cbb4766-bc0e-4ce6-b2c2-cac4e8454ef1)
+
+
+#### Drivetime to GP surgery - 2020 - Outlier Analysis
+
+![Drivetime_to_GP_Outlier](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/850b8d5a-e0ea-4ddf-81e2-2785b7d07f5d)
+
+![drivetime_GP__outlier_report](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/6ff36bf2-342d-4531-9abb-0f203df14fe5)
+
+ArcGis has some powerful geoprocessing tools and provides an alternative option to QGIS. However, it is not Open Source and is not free to use (although there is a 21 day trial period).
+
 
 ### Analysing changes in the SIMD over time 
 
-I thought it would be a useful exercise to show the changes in the 2020 index against the 2016 index to get a picture of the changing deprivaiton landscape across data zones. 
+I thought it would be a useful exercise to show the changes in the 2020 index against the 2016 index to get a picture of the changing deprivation landscape across data zones. 
 
 #### ArcGis Space-Time Cube
 I had hoped to harness the [Space-Time Cube](https://pro.arcgis.com/en/pro-app/latest/tool-reference/space-time-pattern-mining/learnmorecreatecube.htm) feature in ArcGis however very frustratingly you need to have a minimum of 10 time periods to use this feature!
@@ -1972,16 +2072,18 @@ I had hoped to harness the [Space-Time Cube](https://pro.arcgis.com/en/pro-app/l
 ![ten_slices](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/91b08dd2-5531-4b58-b078-52a7626eb769)
 
 
-Also worthy of note. ArcGis requires a projected coordinate system and not a geographical coordinate system :
+>Also worthy of note. ArcGis requires a projected coordinate system and not a geographical coordinate system :
 
 ![geographic_coord_system](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/0fd5bb33-b5f2-485c-b479-1b0252d648d2)
 
 
 ![projected_coord_system](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/12048f06-aefb-4dd0-8a4b-9144aa8d241f)
 
-Another way to view changes between 2020 and 2016 would be to create maps for both years and view side by side. However the differences between two images can often be hard to detect. I had the idea of attempting to construct a "differences" dataset. Although this will require the 2020 and 2016 datsets to be consistent in terms of size and column names and might involve a lot of data wrangling, the end product - a **single** visualization of differences - would be worthwhile. Let's get started!
+Another way to view changes between 2020 and 2016 might be to create maps for both years and view them side by side, however it can often be difficult to detect differences using this method. 
 
-### SIMD 2016
+### Building a dataset of differences
+
+As a workaround to address the above shortcomings, I had the idea of creating a "differences" dataset. Although this will require the 2020 and 2016 datsets to be consistent in terms of size and column names and might involve considerable data wrangling, I think that the end product - a **single** visualization of differences - will be worthwhile. Let's get started!
 
 Let's take a look at the data for 2016.
 
@@ -5487,7 +5589,7 @@ simd_diff_2016_2020_merged.to_file('simd_diff_2016_2020_merged.shp')
 ![SIMD_percentile_change_2016_2020](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/2f3886a5-6ce3-48c5-8ef8-4663bd2c673f)
 
 
-So here we can see in one graphic how the change in the percentile for each datazone from 2016 to 2020. Dark green indicates the areas with the biggest improvement in percentile, whilst dark red represents the biggest drop in peecentile.
+So here we can see in one graphic the change in the SIMD percentile for each datazone from 2016 to 2020. Dark green indicates the areas with the biggest improvement in percentile, whilst dark red represents the biggest drop in percentile.
 
 Let me just check my datazone again - which was SI S01007821.
 
@@ -5497,93 +5599,6 @@ Let me just check my datazone again - which was SI S01007821.
 A change of -15. That's good! Remember that a fall in percentile is a positive thing as it means a lower "deprivation" score.
 
 
-## ArcGis
-
-As part of the Esri MOOC ***Spatial Data Science: The New Frontier in Analytics*** I have access to ArcGis Pro and discovered the Optimized Hot Spot and Outlier analysis tools. Let's now see those tools in action.
-
-### Detect patterns
-
-Statistical cluster analysis can help you minimize the subjectivity in your maps by identifying meaningful clusters in your data. The Hot Spot Analysis and Outlier Analysis tools use statistics to detect spatial patterns in your data, but each provides slightly different information about these patterns.
-
-ArcGIS provides traditional and optimized statistical cluster analysis tools. The optimized tools interrogate your data to provide smart default values, optimizing the analysis workflow. The traditional tools allow you more flexibility in defining the spatial relationships in your data, giving you more control over your analysis. 
-
-### Optimized Hot Spot Analysis
-
-The `Hot Spot Analysis` tool uses the **Getis-Ord Gi*** statistic to identify statistically significant spatial clusters of high values (hot spots) and low values (cold spots).
-
-The result of your analysis is a layer displaying hot spots in three shades of red and cold spots in three shades of blue. The varying shades correspond to three confidence intervals, indicating how confident you can be that these patterns are not the result of random chance.
-
-
-#### Income Deprived - 2020 - Hotspot Analysis
-
-
-![Income_Map](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/85cdddf0-e7d7-4ad3-922e-cc3fe6bc8cee)
-
-
-We can clearly see that large parts of the Glasgow area, significant pockets of Edinburgh and Dundee, and a pocket of Aberdeen are shown to be income deprived hotspots. 
-
-![income_deprived_hotspot_report](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/62c84a60-a30f-46b4-ab40-7266584bfc8e)
-
-
-#### Employment Deprived - 2020 - Hotspot Analysis
-
-![Employment_Map](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/9fe84eec-c76c-49fb-ad0b-d155503b1817)
-
-
-Interestingly the Aberdeen pocket of Income Deprived is not replicated when it comes to Employment. The Glasgow, Edinburgh and Dundee pattern broadly resembles that for income deprivation.
-
-![employment_deprived_hotspot_report](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/ed8abf59-3c2a-43c8-84ff-bdf7d298e44f)
-
-
-#### Overcrowded - 2020 - Hotspot Analysis
-
-
-
-As one might expect, the four main cities are overcrowding hotspots, emphasizing the continuing need for new affordable housing.
-
-![overcrowded_hotspot_report](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/c862eaa5-08f2-4983-b4c4-79d19fd80206)
-
-
-#### Drivetime to GP surgery - 2020 - Hotspot Analysis
-
-Ready and speedy access to healthcare is critical. The four major cities, Glasgow, Edinburgh, Aberdeen, and Dundee all have quick access to a GP, however large swathes of the country are vulnerable as illustrated by the following graphic, and highlights the challenge faced by government to ensure that rural communities are serviced.
-
-![Drivetime_to_GP](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/85def1aa-a3f1-4792-b671-feb9d417ef2c)
-
-
-
-
-Now that we have seen some examples of hotspot areas in Scotland with respect to certain indicators, let's now turn our attention to Outlier Analysis.
-
-### Outlier Analysis
-The `Outlier Analysis` tool uses the **Anselin Local Moran's I** statistic to identify statistically significant clusters of high and low values and to detect spatial outliers, or features with values that are significantly dissimilar from their neighbors.
-
-The bright red and blue features represent spatial outliers. Features with high values surrounded by areas with low values are called `High-Low` outliers and are displayed in `red`. Features with low values surrounded by areas with high values are called `Low-High` outliers and are displayed in `dark blue`. The pink and light blue colors indicate clusters of features with statistically significantly high values (pink) and statistically significantly low values (light blue). These clusters typically align with the hot spots and cold spots from the Optimized Hot Spot Analysis tool.
-
-#### Income Deprived - 2020 - Outlier Analysis
-
-![Income_Map_Outlier](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/403709ff-9264-45b9-81c6-d1f29ad956b4)
-
-![income_deprived_outlier_report](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/4fa6882c-d341-4ac6-82cd-b02649b6f702)
-
-#### Employment Deprived - 2020 - Outlier Analysis
-
-![Employment_Map](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/9fa3811e-75c6-48b9-8076-29f559722587)
-
-![Uploading employment_deprivedoutlier_report.JPG…]()
-
-#### Overcrowded - 2020 - Outlier Analysis
-
-![Overcrowded_Outlier](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/fb47009f-4602-4b2b-a0cf-d8cb4aaf9b68)
-
-![overcrowded_outlier_report](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/1cbb4766-bc0e-4ce6-b2c2-cac4e8454ef1)
-
-
-#### Drivetime to GP surgery - 2020 - Outlier Analysis
-
-![Drivetime_to_GP_Outlier](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/c613914f-cdf5-42e5-9432-8d1be4cb4004)
-
-![drivetime_GP__outlier_report](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/6ff36bf2-342d-4531-9abb-0f203df14fe5)
 
 
 ### Conclusion
@@ -5592,7 +5607,7 @@ First and foremost, this project was an opportunity for me to test my data clean
 
 I look forward to the publication of the 2024 index.
 
-Although the Scottish Index of Multiple Deprivation (SMID) is a useful indicator of deprivation levels throughout Scotland, like any index it can only ever be a subjective measure. The choice of domains, indicators and weightings applied, all influence the final outcome and changes to these components could potentiall paint a very different picture. 
+Although the Scottish Index of Multiple Deprivation (SMID) is a useful indicator of deprivation levels throughout Scotland, like any index it can only ever be a subjective measure. The choice of domains, indicators and weightings applied, all influence the final outcome and changes to these components could potentially paint a very different picture. 
 
 In conclusion, like any statistical measure, in order to make an informed decision based on the SMID, it is critical to perform a thorough analysis of the supporting data. 
 
