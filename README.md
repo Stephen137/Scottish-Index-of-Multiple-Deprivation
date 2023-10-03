@@ -7,6 +7,19 @@ The aim of this project is to analyse and visualise the Scottish Index of Multip
 
 Although I recently relocated to Kraków, Poland, I was born and raised in Dundee, Scotland so this study area has an added layer of personal interest.
 
+## Executive Summary
+
+### Sharpest **increases** (a reduction in percentile group) in deprivation in the period 2016-2020, based on SIMD percentile :
+
+![top20_deprivation_increase](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/ffc11ac2-db66-422d-83a0-eb43c0b2e203)
+
+
+### Sharpest **reductions** (an increase in percentile group) in deprivation in the period 2016-2020, based on SIMD percentile:
+
+![top20_deprivation_decrease](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/182a467b-f30c-4aef-b9f6-a45fe2d5dba5)
+
+The above insights present a starting point for further study. A deeper understanding of the drivers of change (both positive and negative) is essential in order to shape future resource allocation policy.  
+
 ### Scottish Index of Multiple Deprivation (SIMD)
 
 The Scottish Index of Multiple Deprivation 2020 is the Scottish Government’s standard tool for identifying concentrations of deprivation in Scotland. SIMD is based
@@ -5633,16 +5646,21 @@ simd_diff_2016_2020_merged.to_file('simd_diff_2016_2020_merged.shp')
 
 ![SIMD_percentile_change_2016_2020](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/2f3886a5-6ce3-48c5-8ef8-4663bd2c673f)
 
-
 So here we can see in one graphic the change in the SIMD percentile for each datazone from 2016 to 2020. Dark green indicates the areas with the biggest improvement in percentile, whilst dark red represents the biggest drop in percentile.
+
+#### Largest increases in deprivation (reduction in percentile) in the period 2016 to 2020
+![top20_deprivation_increase](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/496836fd-99b2-43d4-a28e-8ffeeed8540a)
+
+#### Largest redcutions in deprivation (increase in percentile) in the period 2016 to 2020
+![top20_deprivation_decrease](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/9e29d1f6-ea9c-4a99-b592-02b7dd91565e)
+
 
 Let me just check my datazone again - which was SI S01007821.
 
 ![dundee_change](https://github.com/Stephen137/Scottish-Index-of-Multiple-Deprivation/assets/97410145/a5da9189-08ef-4b4e-8958-9e6a67f650c7)
 
 
-A change of -15. That's good! Remember that a fall in percentile is a positive thing as it means a lower "deprivation" score.
-
+A change of -15. That's positive. Remember that a fall in percentile is a sign of improvement as it means a lower "deprivation" score.
 
 
 
