@@ -7,7 +7,7 @@ The aim of this project is to analyse and visualise the Scottish Index of Multip
 
 Although I recently relocated to Kraków, Poland, I was born and raised in Dundee, Scotland so this study area has an added layer of personal interest.
 
-## Executive Summary
+## Key Insights
 
 ### Sharpest **increases** (a reduction in percentile group) in deprivation in the period 2016-2020, based on SIMD percentile :
 
